@@ -1,0 +1,85 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Strecke festlegen",
+        "description": "Gib Start- und Zielhaltestelle ein (z. B. „Augsburg Hbf“ und „München Hbf“). Im nächsten Schritt wählst du den genauen Treffer aus.",
+        "data": {
+          "from_query": "Start",
+          "to_query": "Ziel",
+          "base_url": "API-Server (Transitous/MOTIS)"
+        },
+        "data_description": {
+          "base_url": "Nur ändern, wenn du einen eigenen MOTIS-Server betreibst."
+        }
+      },
+      "stations": {
+        "title": "Haltestellen & Optionen",
+        "data": {
+          "from_id": "Starthaltestelle",
+          "to_id": "Zielhaltestelle",
+          "offset": "Vorlaufzeit (Fußweg zum Bahnhof)",
+          "results": "Anzahl Verbindungen",
+          "products": "Verkehrsmittel",
+          "max_transfers": "Max. Umstiege",
+          "scan_interval": "Aktualisierungsintervall",
+          "use_active_window": "Nur im Zeitfenster häufig aktualisieren",
+          "active_start": "Zeitfenster von",
+          "active_end": "Zeitfenster bis"
+        },
+        "data_description": {
+          "offset": "Es werden nur Verbindungen angezeigt, die du nach dieser Zeit noch erreichst.",
+          "use_active_window": "Außerhalb des Fensters wird nur alle 30 Minuten abgefragt (schont die kostenlose API)."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung zum Fahrplan-Server fehlgeschlagen.",
+      "no_stops": "Keine Haltestelle gefunden."
+    },
+    "abort": {
+      "already_configured": "Diese Strecke ist bereits eingerichtet."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "DB Pendler Optionen",
+        "data": {
+          "offset": "Vorlaufzeit (Fußweg zum Bahnhof)",
+          "results": "Anzahl Verbindungen",
+          "products": "Verkehrsmittel",
+          "max_transfers": "Max. Umstiege",
+          "scan_interval": "Aktualisierungsintervall",
+          "use_active_window": "Nur im Zeitfenster häufig aktualisieren",
+          "active_start": "Zeitfenster von",
+          "active_end": "Zeitfenster bis"
+        },
+        "data_description": {
+          "offset": "Es werden nur Verbindungen angezeigt, die du nach dieser Zeit noch erreichst.",
+          "use_active_window": "Außerhalb des Fensters wird nur alle 30 Minuten abgefragt (schont die kostenlose API)."
+        }
+      }
+    }
+  },
+  "selector": {
+    "products": {
+      "options": {
+        "all": "Alle Verkehrsmittel",
+        "regional": "Nur Nahverkehr (Deutschlandticket)",
+        "rail": "Nur Züge (inkl. ICE/IC)",
+        "regional_rail": "Nur Regionalzüge & S-Bahn"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "next_departure": {
+        "name": "Nächste Abfahrt"
+      },
+      "delay": {
+        "name": "Verspätung"
+      }
+    }
+  }
+}

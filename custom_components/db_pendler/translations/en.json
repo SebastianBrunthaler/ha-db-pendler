@@ -1,0 +1,85 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up route",
+        "description": "Enter origin and destination stop (e.g. “Augsburg Hbf” and “München Hbf”). You pick the exact match in the next step.",
+        "data": {
+          "from_query": "From",
+          "to_query": "To",
+          "base_url": "API server (Transitous/MOTIS)"
+        },
+        "data_description": {
+          "base_url": "Only change this if you run your own MOTIS server."
+        }
+      },
+      "stations": {
+        "title": "Stops & options",
+        "data": {
+          "from_id": "Origin stop",
+          "to_id": "Destination stop",
+          "offset": "Lead time (walk to station)",
+          "results": "Number of connections",
+          "products": "Means of transport",
+          "max_transfers": "Max. transfers",
+          "scan_interval": "Update interval",
+          "use_active_window": "Only update frequently within time window",
+          "active_start": "Window start",
+          "active_end": "Window end"
+        },
+        "data_description": {
+          "offset": "Only connections you can still reach after this time are shown.",
+          "use_active_window": "Outside the window the API is only polled every 30 minutes."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to the timetable server.",
+      "no_stops": "No stop found."
+    },
+    "abort": {
+      "already_configured": "This route is already configured."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "DB Pendler options",
+        "data": {
+          "offset": "Lead time (walk to station)",
+          "results": "Number of connections",
+          "products": "Means of transport",
+          "max_transfers": "Max. transfers",
+          "scan_interval": "Update interval",
+          "use_active_window": "Only update frequently within time window",
+          "active_start": "Window start",
+          "active_end": "Window end"
+        },
+        "data_description": {
+          "offset": "Only connections you can still reach after this time are shown.",
+          "use_active_window": "Outside the window the API is only polled every 30 minutes."
+        }
+      }
+    }
+  },
+  "selector": {
+    "products": {
+      "options": {
+        "all": "All means of transport",
+        "regional": "Local/regional only (Deutschlandticket)",
+        "rail": "Trains only (incl. ICE/IC)",
+        "regional_rail": "Regional trains & S-Bahn only"
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "next_departure": {
+        "name": "Next departure"
+      },
+      "delay": {
+        "name": "Delay"
+      }
+    }
+  }
+}

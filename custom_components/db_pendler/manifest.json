@@ -1,0 +1,13 @@
+{
+  "domain": "db_pendler",
+  "name": "DB Pendler",
+  "codeowners": [],
+  "config_flow": true,
+  "dependencies": ["http", "frontend"],
+  "documentation": "https://github.com/DEIN_GITHUB_NAME/ha-db-pendler",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/DEIN_GITHUB_NAME/ha-db-pendler/issues",
+  "requirements": [],
+  "version": "1.0.0"
+}
