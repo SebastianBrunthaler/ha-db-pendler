@@ -128,3 +128,16 @@ async def test_card_js_is_served(hass: HomeAssistant, hass_client) -> None:
 
     urls = hass.data[DATA_EXTRA_MODULE_URL].urls
     assert any(u.startswith("/db_pendler/db-pendler-card.js?v=") and len(u.split("=")[1]) == 8 for u in urls)
+
+
+async def test_brand_icon_is_served(hass: HomeAssistant, hass_client) -> None:
+    """HA (ab 2026.x) liefert Icons eigener Integrationen aus dem Ordner brand/ aus."""
+    from homeassistant.setup import async_setup_component
+
+    assert await async_setup_component(hass, "brands", {})
+    client = await hass_client()
+    for image in ("icon.png", "icon@2x.png", "logo.png", "dark_icon.png"):
+        resp = await client.get(f"/api/brands/integration/{DOMAIN}/{image}")
+        assert resp.status == 200, image
+        assert resp.content_type == "image/png"
+        assert (await resp.read())[:8] == b"\x89PNG\r\n\x1a\n"
