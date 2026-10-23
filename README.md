@@ -172,7 +172,7 @@ Fehler und Ideen gerne als [Issue](https://github.com/SebastianBrunthaler/ha-db-
 Wenn dir DB Pendler den Morgen ein bisschen entspannter macht, freue ich mich über einen Kaffee:
 
 <a href="https://buymeacoffee.com/sebastian.brunthaler">
-  <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=%E2%98%95&slug=sebastian.brunthaler&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" alt="Buy me a coffee" height="48">
+  <img src="https://img.buymeacoffee.com/button-api/?text=Buy%20me%20a%20coffee&emoji=&slug=sebastian.brunthaler&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" alt="Buy me a coffee" height="48">
 </a>
 
 ---
