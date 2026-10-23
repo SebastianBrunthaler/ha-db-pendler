@@ -6,7 +6,7 @@ DOMAIN = "db_pendler"
 VERSION = "1.0.1"
 
 DEFAULT_BASE_URL = "https://api.transitous.org"
-USER_AGENT = f"HomeAssistant-DBPendler/{VERSION} (+https://github.com/hacs/integration)"
+USER_AGENT = f"HomeAssistant-DBPendler/{VERSION} (+https://github.com/SebastianBrunthaler/ha-db-pendler)"
 ATTRIBUTION = "Daten: Transitous (transitous.org) / DELFI, inkl. DB-Echtzeitdaten"
 
 CONF_FROM_ID = "from_id"

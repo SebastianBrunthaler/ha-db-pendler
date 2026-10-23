@@ -25,11 +25,13 @@ Bitte die Abfragefrequenz moderat halten (Standard: alle 3 Minuten). Mit dem Zei
 
 ## Installation über HACS
 
-1. Dieses Verzeichnis als eigenes GitHub-Repository veröffentlichen
-   (in `manifest.json` die Platzhalter `DEIN_GITHUB_NAME` ersetzen).
-2. HACS → ⋮ → **Benutzerdefinierte Repositories** → Repo-URL eintragen, Typ **Integration**.
-3. „DB Pendler“ in HACS installieren und Home Assistant neu starten.
-4. **Einstellungen → Geräte & Dienste → Integration hinzufügen → DB Pendler**.
+1. HACS → ⋮ → **Benutzerdefinierte Repositories** →
+   `https://github.com/SebastianBrunthaler/ha-db-pendler` eintragen, Typ **Integration**.
+2. „DB Pendler“ in HACS installieren und Home Assistant neu starten.
+3. **Einstellungen → Geräte & Dienste → Integration hinzufügen → DB Pendler**.
+
+**Update:** In HACS „DB Pendler“ → ⋮ → **Erneut herunterladen** (HACS erkennt neue Commits
+ohne Release nicht immer als Update), danach Home Assistant neu starten.
 
 ### Manuell (ohne HACS)
 
@@ -55,6 +57,9 @@ Optionen lassen sich später über **Konfigurieren** ändern.
 ## Karte
 
 Die Karte erscheint im Dashboard-Editor unter **Karte hinzufügen → DB Pendler**. Oder per YAML:
+
+> Wichtig: `type: custom:db-pendler-card` verwenden. Wählt man im Editor nur den Sensor aus,
+> legt Home Assistant eine normale Kachel (`type: tile`) an, die nur „In 10 Minuten“ zeigt.
 
 ```yaml
 type: custom:db-pendler-card
@@ -89,6 +94,28 @@ actions:
       message: >
         {{ state_attr('sensor.augsburg_hbf_munchen_hbf_verspatung', 'line') }}
         hat +{{ states('sensor.augsburg_hbf_munchen_hbf_verspatung') }} min.
+```
+
+## Fehlerbehebung
+
+**„Custom element doesn't exist: db-pendler-card“**
+
+1. Prüfen, ob die Integration eingerichtet ist (Einstellungen → Geräte & Dienste). Die Karte
+   wird nur ausgeliefert, wenn die Integration geladen ist.
+2. Home Assistant nach jedem Update neu starten.
+3. Dashboard hart neu laden (Cmd/Strg + Shift + R). In der Companion-App:
+   Einstellungen → Companion App → Fehlerbehebung → Frontend-Cache leeren.
+4. In der Browser-Konsole (F12) sollte `DB-PENDLER-CARD <Version>` erscheinen.
+
+Die Karte muss **nicht** als Dashboard-Ressource eingetragen werden. Ein zusätzlicher
+manueller Eintrag unter `/db_pendler/db-pendler-card.js` ist unnötig, schadet aber nicht.
+
+## Entwicklung
+
+```bash
+pip install pytest-homeassistant-custom-component
+pytest tests
+python tests/live_api_check.py   # Live-Abfrage gegen Transitous
 ```
 
 ## Hinweise
