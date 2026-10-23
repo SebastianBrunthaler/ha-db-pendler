@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-label="DB Pendler – Dein Arbeitsweg auf einen Blick">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f01414"/>
+      <stop offset="1" stop-color="#9b0010"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="300" rx="28" fill="url(#bg)"/>
+  <rect width="1200" height="150" rx="28" fill="url(#shine)"/>
+
+  <!-- Gleise -->
+  <g stroke="#fff" stroke-opacity=".14" stroke-width="4">
+    <line x1="0" y1="262" x2="1200" y2="262"/>
+    <line x1="0" y1="280" x2="1200" y2="280"/>
+  </g>
+  <g stroke="#fff" stroke-opacity=".10" stroke-width="6">
+    <line x1="40" y1="256" x2="40" y2="286"/><line x1="110" y1="256" x2="110" y2="286"/>
+    <line x1="180" y1="256" x2="180" y2="286"/><line x1="250" y1="256" x2="250" y2="286"/>
+    <line x1="320" y1="256" x2="320" y2="286"/><line x1="390" y1="256" x2="390" y2="286"/>
+    <line x1="460" y1="256" x2="460" y2="286"/><line x1="530" y1="256" x2="530" y2="286"/>
+    <line x1="600" y1="256" x2="600" y2="286"/><line x1="670" y1="256" x2="670" y2="286"/>
+    <line x1="740" y1="256" x2="740" y2="286"/><line x1="810" y1="256" x2="810" y2="286"/>
+    <line x1="880" y1="256" x2="880" y2="286"/><line x1="950" y1="256" x2="950" y2="286"/>
+    <line x1="1020" y1="256" x2="1020" y2="286"/><line x1="1090" y1="256" x2="1090" y2="286"/>
+    <line x1="1160" y1="256" x2="1160" y2="286"/>
+  </g>
+
+  <!-- Zug-Icon (Material Design Icons: train) -->
+  <g transform="translate(70 62) scale(6.2)" fill="#fff">
+    <path d="M12,2C8,2 4,2.5 4,6V15.5A3.5,3.5 0 0,0 7.5,19L6,20.5V21H8.23L10.23,19H14L16,21H18V20.5L16.5,19A3.5,3.5 0 0,0 20,15.5V6C20,2.5 16.42,2 12,2M7.5,17A1.5,1.5 0 0,1 6,15.5A1.5,1.5 0 0,1 7.5,14A1.5,1.5 0 0,1 9,15.5A1.5,1.5 0 0,1 7.5,17M11,10H6V6H11V10M13,10V6H18V10H13M16.5,17A1.5,1.5 0 0,1 15,15.5A1.5,1.5 0 0,1 16.5,14A1.5,1.5 0 0,1 18,15.5A1.5,1.5 0 0,1 16.5,17Z"/>
+  </g>
+
+  <g font-family="-apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif" fill="#fff">
+    <text x="270" y="140" font-size="78" font-weight="800" letter-spacing="-1">DB Pendler</text>
+    <text x="272" y="190" font-size="26" font-weight="500" fill-opacity=".92">Dein Arbeitsweg auf einen Blick – für Home Assistant</text>
+  </g>
+
+  <!-- Mini-Abfahrtstafel -->
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, monospace" font-size="22" font-weight="700">
+    <rect x="946" y="56" width="200" height="128" rx="14" fill="#000" fill-opacity=".28"/>
+    <text x="964" y="96" fill="#fff">07:12</text><text x="1046" y="96" fill="#7CFC8A">+0</text><text x="1096" y="96" fill="#fff" fill-opacity=".8">G1</text>
+    <text x="964" y="132" fill="#fff">07:41</text><text x="1046" y="132" fill="#FFC447">+4</text><text x="1096" y="132" fill="#fff" fill-opacity=".8">G3</text>
+    <text x="964" y="168" fill="#fff">08:12</text><text x="1046" y="168" fill="#7CFC8A">+0</text><text x="1096" y="168" fill="#fff" fill-opacity=".8">G1</text>
+  </g>
+</svg>
