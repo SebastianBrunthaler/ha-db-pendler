@@ -123,3 +123,8 @@ async def test_card_js_is_served(hass: HomeAssistant, hass_client) -> None:
     resp = await client.get("/db_pendler/db-pendler-card.js")
     assert resp.status == 200
     assert "db-pendler-card" in await resp.text()
+
+    from homeassistant.components.frontend import DATA_EXTRA_MODULE_URL
+
+    urls = hass.data[DATA_EXTRA_MODULE_URL].urls
+    assert any(u.startswith("/db_pendler/db-pendler-card.js?v=") and len(u.split("=")[1]) == 8 for u in urls)

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 DOMAIN = "db_pendler"
-VERSION = "1.0.0"
+VERSION = "1.0.1"
 
 DEFAULT_BASE_URL = "https://api.transitous.org"
 USER_AGENT = f"HomeAssistant-DBPendler/{VERSION} (+https://github.com/hacs/integration)"

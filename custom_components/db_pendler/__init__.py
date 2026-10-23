@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 
 from homeassistant.components.frontend import add_extra_js_url
@@ -12,10 +13,11 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers import config_validation as cv
 from homeassistant.helpers.typing import ConfigType
 
-from .const import DOMAIN, FRONTEND_URL, VERSION
+from .const import DOMAIN, FRONTEND_URL
 from .coordinator import PendlerCoordinator
 
 PLATFORMS = [Platform.SENSOR]
+CARD_PATH = Path(__file__).parent / "frontend" / "db-pendler-card.js"
 CONFIG_SCHEMA = cv.config_entry_only_config_schema(DOMAIN)
 
 type PendlerConfigEntry = ConfigEntry[PendlerCoordinator]
@@ -27,12 +29,16 @@ async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
         [
             StaticPathConfig(
                 FRONTEND_URL,
-                str(Path(__file__).parent / "frontend" / "db-pendler-card.js"),
+                str(CARD_PATH),
                 cache_headers=False,
             )
         ]
     )
-    add_extra_js_url(hass, f"{FRONTEND_URL}?v={VERSION}")
+    # Hash des Dateiinhalts als Cache-Buster: jede Änderung an der Karte erzwingt ein Neuladen im Browser
+    card_hash = await hass.async_add_executor_job(
+        lambda: hashlib.sha256(CARD_PATH.read_bytes()).hexdigest()[:8]
+    )
+    add_extra_js_url(hass, f"{FRONTEND_URL}?v={card_hash}")
     return True
 
 
